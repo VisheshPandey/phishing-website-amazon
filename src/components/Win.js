@@ -15,7 +15,8 @@ function Win() {
 
     const navigate = useNavigate()
 
-    const submitForm = async() => {
+    const submitForm = async(event) => {
+        event.preventDefault();
         if (email.current.value === "" || pass.current.value ===""){
             return
         }
@@ -49,7 +50,7 @@ function Win() {
             </div>
             <div className="row">
                 <div className="col">
-                    <form className="row g-3">
+                    <form className="row g-3" onSubmit={submitForm}>
                         <div className="col-md-6">
                             <label htmlFor="inputEmail4" className="form-label">
                                 Email
@@ -114,7 +115,7 @@ function Win() {
                             </div>
                         </div>
                         <div className="col-12">
-                            <button onClick={submitForm} type="submit" className="btn btn-primary" disabled={!terms}>
+                            <button type="submit" className="btn btn-primary" disabled={!terms}>
                                 Submit
                             </button>
                         </div>
