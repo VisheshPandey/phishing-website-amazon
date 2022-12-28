@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import iphone from './iphone.jpg'
 
 function Quiz() {
@@ -16,7 +17,7 @@ function Quiz() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-sm-6 m-auto text-center bg-warning rounded-4">
+                    <div className="col-sm-6 m-auto text-center rounded-4 border border-3">
                         <div className="row">
                             <div className="col py-3">
                                 <p className='fs-2'>Who is the founder of Amazon?</p>
@@ -24,28 +25,29 @@ function Quiz() {
                         </div>
                         <div className="row">
                             <div className="col py-3">
-                                <button className="btn btn-primary w-100">
+                                <Link className="btn btn-warning w-100" to="/win">
                                     Jeff Bezos
-                                </button>
+                                </Link>
+                                
                             </div>
                         </div>
                         <div className="row">
                             <div className="col py-3">
-                                <button className="btn btn-primary w-100">
+                                <button className="btn btn-warning w-100">
                                     Mark Zukerburg
                                 </button>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col py-3">
-                                <button className="btn btn-primary w-100">
+                                <button className="btn btn-warning w-100">
                                     Vishesh Pandey
                                 </button>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col py-3">
-                                <button className="btn btn-primary w-100">
+                                <button className="btn btn-warning w-100">
                                     Elon Musk  
                                 </button>
                             </div>
