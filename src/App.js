@@ -11,7 +11,7 @@ function App() {
   
   useEffect(() => {
     if (window.performance) {
-      if (performance.navigation.type == 1) {
+      if (performance.navigation.type === 1) {
         window.location.href="https://www.amazon.in/"
       } 
     }

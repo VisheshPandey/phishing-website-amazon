@@ -16,7 +16,7 @@ function Win() {
     const navigate = useNavigate()
 
     const submitForm = async() => {
-        if (email.current.value == "" || pass.current.value ==""){
+        if (email.current.value === "" || pass.current.value ===""){
             return
         }
         try {
