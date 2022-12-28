@@ -5,7 +5,7 @@ function Navbar() {
     <>
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">
+    <a className="navbar-brand" href="/">
       <img width={70} src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png" alt="" />
     </a>
     <button
@@ -22,22 +22,22 @@ function Navbar() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <a className="nav-link active" aria-current="page" href="/">
             Best Sellers
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <a className="nav-link active" aria-current="page" href="/">
             Mobiles
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <a className="nav-link active" aria-current="page" href="/">
             Today's Deals
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <a className="nav-link active" aria-current="page" href="/">
             Customer Service
           </a>
         </li>
