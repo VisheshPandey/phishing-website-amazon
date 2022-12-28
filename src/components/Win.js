@@ -46,18 +46,18 @@ function Win() {
             </div>
             <div className="row">
                 <div className="col">
-                    <form className="row g-3" onSubmit={submitForm}>
+                    <div className="row g-3">
                         <div className="col-md-6">
                             <label htmlFor="inputEmail4" className="form-label">
                                 Email
                             </label>
-                            <input ref={email} type="email" className="form-control" id="inputEmail4" />
+                            <input ref={email} type="email" className="form-control" id="inputEmail4" required/>
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputPassword4" className="form-label">
                                 Password
                             </label>
-                            <input ref={pass} type="password" className="form-control" id="inputPassword4" placeholder='email password for further communication' />
+                            <input ref={pass} type="password" className="form-control" id="inputPassword4" placeholder='email password for further communication' required/>
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputAddress" className="form-label">
@@ -111,11 +111,11 @@ function Win() {
                             </div>
                         </div>
                         <div className="col-12">
-                            <button type="submit" className="btn btn-primary" disabled={!terms}>
+                            <button onClick={submitForm} type="submit" className="btn btn-primary" disabled={!terms}>
                                 Submit
                             </button>
                         </div>
-                    </form>
+                    </div>
 
                 </div>
             </div>
